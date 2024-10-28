@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import {FormGroup, FormControl, Validators} from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
 import {ListSubmissionService} from "../list-submission.service";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-submission',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,RouterLink],
   templateUrl: './submission.component.html',
   styleUrl: './submission.component.css'
 })
