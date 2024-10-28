@@ -1,0 +1,8 @@
+<div class="container">
+  <form [formGroup]="submissionForm" (ngSubmit)="handleSubmit()">
+    <input type="text" formControlName="name" class="form-control mb-2" placeholder="Name" />
+    <input type="email" formControlName="email" class="form-control mb-2" placeholder="Email" />
+    <input type="textarea" formControlName="message" class="form-control mb-2" placeholder="Message" />
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
