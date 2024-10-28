@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {ListSubmissionService} from "../list-submission.service";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 
@@ -21,7 +21,10 @@ export class DetailsComponent {
     image_url: new FormControl(''),
   });
 
-  constructor(private submissionServices: ListSubmissionService) {
+  constructor(
+    private submissionServices: ListSubmissionService,
+    private router: Router
+    ) {
     const sid = Number(this.route.snapshot.params['id']);
     this.submissionID = Number(this.route.snapshot.params['id']);
     this.submissionServices.getSubmission(sid).subscribe((data:any)=>{
@@ -36,6 +39,17 @@ export class DetailsComponent {
   updateSubmission(){
     this.submissionServices.updateSubmission(this.submissionID, this.detailsForm.value).subscribe((data:any)=>{
       console.log(data);
+    })
+  };
+
+  deleteSubmission(){
+    this.submissionServices.deleteSubmission(this.submissionID, this.detailsForm.value).subscribe((data:any)=>{
+      if(data.success){
+        this.router.navigate(['/dashboard']);
+        // return false;
+      }else{
+        console.log(data);
+      }
     })
   };
 }

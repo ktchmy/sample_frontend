@@ -10,6 +10,7 @@ export class ListSubmissionService {
   createUrl = "https://sample_backend.test/api/sample-submission/add";
   getUrl = "https://sample_backend.test/api/sample-submission/get/";
   updateUrl = "https://sample_backend.test/api/sample-submission/update/";
+  deleteUrl = "https://sample_backend.test/api/sample-submission/delete/";
   constructor(private http: HttpClient) { }
   getSubmissions(): Observable<any>{
     const headers = new HttpHeaders({ 'Accept':'application/json' });
@@ -33,5 +34,12 @@ export class ListSubmissionService {
     //Change from Json to x-form-encode to pass thru
     const body = 'id=' + id + '&name=' + submission.name + '&email=' + submission.email +'&message=' + submission.message + '&file=' + submission.file;
     return this.http.post(this.updateUrl+id,  body, {headers});
+  }
+
+  deleteSubmission(id: number, submission: any): Observable<any>{
+    const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded','Accept':'application/json' });
+    //Change from Json to x-form-encode to pass thru
+    const body = 'id=' + id + '&name=' + submission.name + '&email=' + submission.email +'&message=' + submission.message + '&file=' + submission.file;
+    return this.http.post(this.deleteUrl+id,  body, {headers});
   }
 }
