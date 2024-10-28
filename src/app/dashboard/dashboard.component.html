@@ -1,0 +1,25 @@
+<div class="container mx-auto text-center">
+  <h3 class="mb-4 text-3xl font-bold">List of submission</h3>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Message</th>
+        <th>Image URL</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let submission of submissions; let in = index">
+        <td>{{ submission['id'] }}</td>
+        <td>{{ submission['name'] }}</td>
+        <td>{{ submission['email'] }}</td>
+        <td>{{ submission['message'] }}</td>
+        <td>{{ submission['image_url'] }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
