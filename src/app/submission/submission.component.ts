@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup,FormControl } from "@angular/forms";
+import {FormGroup, FormControl, Validators} from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
 import {ListSubmissionService} from "../list-submission.service";
 
@@ -15,9 +15,9 @@ export class SubmissionComponent {
   type = '';
   resMessage ='';
   submissionForm = new FormGroup({
-    name: new FormControl(''),
-    email: new FormControl(''),
-    message: new FormControl(''),
+    name: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    message: new FormControl('',Validators.required),
     image_url: new FormControl(''),
   });
 
@@ -34,7 +34,6 @@ export class SubmissionComponent {
         this.resMessage = data.message;
       }
     });
-    console.log('Form submitted with data:', this.submissionForm.value);
 
   };
 }
