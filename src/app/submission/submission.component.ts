@@ -12,6 +12,8 @@ import {ListSubmissionService} from "../list-submission.service";
 })
 export class SubmissionComponent {
   submission = [];
+  type = '';
+  resMessage ='';
   submissionForm = new FormGroup({
     name: new FormControl(''),
     email: new FormControl(''),
@@ -22,7 +24,15 @@ export class SubmissionComponent {
   constructor(private submissionService: ListSubmissionService) {}
   handleSubmit(){
     this.submissionService.createSubmission(this.submissionForm.value).subscribe((data:any)=>{
-      console.log(data);
+       console.log(data);
+      if(data.success){
+        this.type = 'success';
+        this.resMessage = data.message;
+        this.submissionForm.reset();
+      }else{
+        this.type = 'alert';
+        this.resMessage = data.message;
+      }
     });
     console.log('Form submitted with data:', this.submissionForm.value);
 
