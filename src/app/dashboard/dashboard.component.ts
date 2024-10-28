@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import {ListSubmissionService} from "../list-submission.service";
 import {NgForOf} from "@angular/common";
 import {NgFor} from "@angular/common";
-import {RouterLink} from "@angular/router";
+import {RouterLink, RouterModule} from "@angular/router";
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
   imports: [
-    NgForOf, NgFor, RouterLink
+    NgForOf, NgFor, RouterLink, RouterModule
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'

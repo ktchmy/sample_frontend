@@ -8,6 +8,7 @@
         <th>Name</th>
         <th>Email</th>
         <th>Message</th>
+<!--        <th>Image URL</th>-->
         <th>Image URL</th>
       </tr>
     </thead>
@@ -17,7 +18,8 @@
         <td>{{ submission['name'] }}</td>
         <td>{{ submission['email'] }}</td>
         <td>{{ submission['message'] }}</td>
-        <td>{{ submission['image_url'] }}</td>
+<!--        <td>{{ submission['image_url'] }}</td>-->
+        <td><a [routerLink]="['/details', submission['id'] ]">View</a></td>
       </tr>
     </tbody>
   </table>

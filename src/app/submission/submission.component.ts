@@ -15,6 +15,7 @@ export class SubmissionComponent {
   submission = [];
   type = '';
   resMessage ='';
+
   submissionForm = new FormGroup({
     name: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),

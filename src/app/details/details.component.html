@@ -1,0 +1,24 @@
+<div class="container">
+  <h2>Submission {{ submissionID }}</h2>
+  <form [formGroup]="detailsForm" >
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <td>Name</td>
+          <td><input type="text" formControlName="name" class="form-control"></td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td><input type="email" formControlName="email" class="form-control"></td>
+        </tr>
+        <tr>
+          <td>Message</td>
+          <td><input type="text" formControlName="message" class="form-control form-text"></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="row">
+      <button class="col-auto btn btn-info" (click)="updateSubmission()">Update</button>
+    </div>
+  </form>
+</div>
