@@ -1,6 +1,20 @@
 <div class="container mx-auto text-center">
   <h3 class="mb-4 text-3xl font-bold">List of submission</h3>
 
+  <form class="form">
+    <div class="row mb-5">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Filter by name" #name>
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Filter by email" #email>
+      </div>
+      <div class="col-auto">
+        <button class="btn btn-primary" type="button" (click)="filterResults(name.value,email.value)">Search</button>
+      </div>
+    </div>
+  </form>
+
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -13,7 +27,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let submission of submissions; let in = index">
+      <tr *ngFor="let submission of filteredSubmission; let in = index">
         <td>{{ submission['id'] }}</td>
         <td>{{ submission['name'] }}</td>
         <td>{{ submission['email'] }}</td>
