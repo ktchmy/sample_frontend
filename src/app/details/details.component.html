@@ -18,8 +18,12 @@
       </tbody>
     </table>
     <div class="row">
-      <button class="col-auto btn btn-info" (click)="updateSubmission()">Update</button>
-      <button class="col-auto btn btn-alert" (click)="deleteSubmission()">Delete</button>
+      <div class="col-auto">
+        <button class="btn btn-info text-white" (click)="updateSubmission()">Update</button>
+      </div>
+      <div class="col-auto">
+        <button class="btn btn-danger" (click)="deleteSubmission()">Delete</button>
+      </div>
     </div>
   </form>
 </div>
